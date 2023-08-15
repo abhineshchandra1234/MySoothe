@@ -90,7 +90,7 @@ fun AlignYourBodyElement(
     // Implement composable here
     Column(
         modifier =
-        Modifier,
+        modifier,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
