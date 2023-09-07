@@ -27,12 +27,16 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
@@ -108,9 +112,11 @@ fun AlignYourBodyElement(
                 .size(88.dp)
                 .clip(CircleShape)
         )
-        Text(text = stringResource(id = text),
-        style = MaterialTheme.typography.h3,
-        modifier = Modifier.paddingFromBaseline(top = 24.dp, bottom = 8.dp))
+        Text(
+            text = stringResource(id = text),
+            style = MaterialTheme.typography.h3,
+            modifier = Modifier.paddingFromBaseline(top = 24.dp, bottom = 8.dp)
+        )
     }
 }
 
@@ -131,14 +137,18 @@ fun FavoriteCollectionCard(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.width(255.dp)
         ) {
-           Image(painter = painterResource(id = drawable),
-               contentDescription = null,
-           contentScale = ContentScale.Crop,
-           modifier = Modifier
-               .size(80.dp))
-            Text(text = stringResource(id = text),
-            style = MaterialTheme.typography.subtitle1,
-            modifier = Modifier.padding(horizontal = 16.dp))
+            Image(
+                painter = painterResource(id = drawable),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .size(80.dp)
+            )
+            Text(
+                text = stringResource(id = text),
+                style = MaterialTheme.typography.subtitle1,
+                modifier = Modifier.padding(horizontal = 16.dp)
+            )
         }
     }
 }
@@ -152,9 +162,10 @@ fun AlignYourBodyRow(
     LazyRow(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         contentPadding = PaddingValues(horizontal = 16.dp),
-        modifier = modifier) {
-        items(alignYourBodyData) {
-           item -> AlignYourBodyElement(drawable = item.drawable, text = item.text)
+        modifier = modifier
+    ) {
+        items(alignYourBodyData) { item ->
+            AlignYourBodyElement(drawable = item.drawable, text = item.text)
         }
     }
 }
@@ -165,6 +176,18 @@ fun FavoriteCollectionsGrid(
     modifier: Modifier = Modifier
 ) {
     // Implement composable here
+    LazyHorizontalGrid(
+        rows = GridCells.Fixed(2), content = {
+            items(favoriteCollectionsData) { item ->
+                FavoriteCollectionCard(drawable = item.drawable, text = item.text,
+                    Modifier.height(80.dp))
+            }
+        },
+        contentPadding = PaddingValues(horizontal = 16.dp),
+        horizontalArrangement = Arrangement.spacedBy(16.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        modifier = modifier.height(168.dp)
+    )
 }
 
 // Step: Home section - Slot APIs
