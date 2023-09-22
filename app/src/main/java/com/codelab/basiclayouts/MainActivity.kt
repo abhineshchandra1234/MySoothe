@@ -49,7 +49,11 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Spa
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -236,6 +240,26 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 @Composable
 private fun SootheBottomNavigation(modifier: Modifier = Modifier) {
     // Implement composable here
+    NavigationBar(
+        containerColor = MaterialTheme.colors.surface,
+        modifier = modifier
+    ) {
+        NavigationBarItem(selected = true, onClick = { /*TODO*/ }, icon = {
+            Icon(
+                imageVector = Icons.Default.Spa,
+                contentDescription = null
+            )
+        },
+            label = {
+                Text(text = stringResource(id = R.string.bottom_navigation_home))
+            })
+        NavigationBarItem(selected = false, onClick = { /*TODO*/ },
+            icon = { Icon(imageVector = Icons.Default.AccountCircle,
+                contentDescription = null) },
+            label = {
+                Text(text = stringResource(id = R.string.bottom_navigation_profile))
+            })
+    }
 }
 
 // Step: MySoothe App - Scaffold
