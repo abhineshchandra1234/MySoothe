@@ -43,7 +43,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
@@ -52,6 +51,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Spa
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.Composable
@@ -87,7 +87,7 @@ fun SearchBar(
             )
         },
         colors = TextFieldDefaults.textFieldColors(
-            backgroundColor = MaterialTheme.colors.surface
+            backgroundColor = MaterialTheme.colorScheme.surface
         ),
         placeholder = {
             Text(text = stringResource(id = R.string.placeholder_search))
@@ -121,7 +121,7 @@ fun AlignYourBodyElement(
         )
         Text(
             text = stringResource(id = text),
-            style = MaterialTheme.typography.h3,
+            style = MaterialTheme.typography.bodyMedium,
             modifier = Modifier.paddingFromBaseline(top = 24.dp, bottom = 8.dp)
         )
     }
@@ -137,7 +137,7 @@ fun FavoriteCollectionCard(
     // Implement composable here
     Surface(
         shape = MaterialTheme.shapes.medium,
-        color = MaterialTheme.colors.primaryVariant,
+        color = MaterialTheme.colorScheme.surfaceVariant,
         modifier = modifier
     ) {
         Row(
@@ -153,7 +153,7 @@ fun FavoriteCollectionCard(
             )
             Text(
                 text = stringResource(id = text),
-                style = MaterialTheme.typography.subtitle1,
+                style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.padding(horizontal = 16.dp)
             )
         }
@@ -208,7 +208,7 @@ fun HomeSection(
     Column(modifier = modifier) {
         Text(
             text = stringResource(id = title),
-            style = MaterialTheme.typography.h3,
+            style = MaterialTheme.typography.titleMedium,
             modifier = Modifier
                 .paddingFromBaseline(top = 40.dp, bottom = 16.dp)
                 .padding(horizontal = 16.dp)
@@ -241,7 +241,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 private fun SootheBottomNavigation(modifier: Modifier = Modifier) {
     // Implement composable here
     NavigationBar(
-        containerColor = MaterialTheme.colors.surface,
+        containerColor = MaterialTheme.colorScheme.surfaceVariant,
         modifier = modifier
     ) {
         NavigationBarItem(selected = true, onClick = { /*TODO*/ }, icon = {
