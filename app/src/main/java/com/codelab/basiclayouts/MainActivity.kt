@@ -54,6 +54,7 @@ import androidx.compose.material.icons.filled.Spa
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -266,6 +267,13 @@ private fun SootheBottomNavigation(modifier: Modifier = Modifier) {
 @Composable
 fun MySootheApp() {
     // Implement composable here
+    MySootheTheme {
+        Scaffold(
+            bottomBar = { SootheBottomNavigation()}
+        ) {
+            paddingValues ->  HomeScreen(Modifier.padding(paddingValues))
+        }
+    }
 }
 
 private val alignYourBodyData = listOf(
