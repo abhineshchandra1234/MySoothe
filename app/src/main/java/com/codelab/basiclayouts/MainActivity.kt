@@ -17,6 +17,7 @@
 package com.codelab.basiclayouts
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.DrawableRes
@@ -288,7 +289,8 @@ fun MySootheApp(windowSize: WindowSizeClass) {
         }
 
         WindowWidthSizeClass.Expanded -> {
-            MySootheAppLandscape()
+            Log.d("Main", "MySootheApp: landscape mode")
+            //MySootheAppLandscape()
         }
     }
 }
